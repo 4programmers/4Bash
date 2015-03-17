@@ -1,0 +1,12 @@
+{# <div class="quote_pagenums"><span class="first">Pierwsza strona</span><span class="sep">&nbsp;&nbsp;</span><span class="skipback">-10</span><span class="sep">&nbsp;&nbsp;</span><span class="noellipsis"></span><span class="sep">&nbsp;&nbsp;</span><span class="nopage"></span><span class="sep">&nbsp;&nbsp;</span><span class="nopage"></span><span class="sep">&nbsp;&nbsp;</span><span class="currpage"><b>1</b></span><span class="sep">&nbsp;&nbsp;</span><a href="?latest&amp;2">2</a><span class="sep">&nbsp;&nbsp;</span><a href="?latest&amp;3">3</a><span class="sep">&nbsp;&nbsp;</span><span class="ellipsis">...</span><span class="sep">&nbsp;&nbsp;</span><a class="skipfwd" href="?latest&amp;11">+10</a><span class="sep">&nbsp;&nbsp;</span><a class="last" href="?latest&amp;24">Ostatnia strona</a></div> #}
+
+<div class="quote_pagenums">
+	{% for i in 1..quote_pages %}
+		{% if quote_cur_page == i %}
+			<span class="currpage">{{ i }}</span>
+		{% else %}
+			<a href="{{ path('list_page', {ordering: quote_ordering, page: i}) }}">{{ i }}</a>
+		{% endif %}
+	{% endfor %}
+</div>
+

@@ -1,0 +1,33 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+<h1 id="quote_origin-name">Quotes</h1>
+
+{% include 'pagination.twig' %}
+
+<div id="quote_list">
+    {% for row in quotes %}
+	<div class="quote_whole" id="q{{ row.id }}">
+		<div class="quote_option-bar">
+			<span class="quote_plus" id="quote_plus_{{ row.id }}" title="Już głosowałeś na ten cytat">+</span>
+			<span class="quote_rating"><span id="quote_rating_{{ row.id }}">{{ row.rating }}</span></span>
+			<span class="quote_minus" id="quote_minus_{{ row.id }}" title="Już głosowałeś na ten cytat">-</span>
+		</div>
+		<div class="quote_head">
+			<a href="/view/{{ row.id }}" class="quote_number">Cytat #{{ row.id }}</a>
+			<span class="quote_date">{{ row.date|date('d.m.Y') }}</span>
+		</div>
+		<!-- quote_head -->
+		<div class="quote_quote">
+			{{ row.quote|nl2br }}
+		</div>
+		<div class=quote_bottom_bar>
+			<a href="?flag&amp;{{ row.id }}" class="quote_flag" title="Zgłoś ten cytat administracji"></a>
+		</div>
+	</div>
+    {% endfor %}
+</div>
+
+{% include 'pagination.twig' %}
+
+{% endblock %}

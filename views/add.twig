@@ -1,0 +1,13 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	<h1 id="quote_origin-name">Dodaj</h1>
+
+	{{ form_start(form) }}
+		{{ form_widget(form) }}
+
+		{{ form_widget(form.quote) }}
+
+		<input type="submit" value="dodaj" />
+	{{ form_end(form) }}
+{% endblock %}

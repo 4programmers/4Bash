@@ -1,0 +1,9 @@
+{
+    "require": {
+        "silex/silex": "~1.2",
+        "symfony/twig-bridge": "~2.6",
+        "doctrine/dbal": "~2.2",
+        "symfony/form": "~2.6",
+        "symfony/translation": "~2.6"
+    }
+}
